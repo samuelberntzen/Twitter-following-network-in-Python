@@ -33,7 +33,7 @@ follower_threshold = 50
 # This website can be used for retrieving user_id: https://tweeterid.com/
 
 def get_friends(user_id):
-    print("Retrieving friends for:\t\t\t\t\t",user_id, end = "\r")
+    print("\r Retrieving friends for:\t\t\t\t\t",user_id, end = "\r")
     ids = []
     friends_array = []
     

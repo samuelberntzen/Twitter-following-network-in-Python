@@ -45,7 +45,7 @@ def translate_id(id_array):
             user = api.get_user(i)
             name = user.screen_name
             keys.append([i, name])
-            print("Percent completed (updates automatically): {}".format(100*np.where(id_array==i)[0]/len(id_array)), end = "\r", flush = True)
+            print("\r Percent completed (updates automatically): {}".format(100*np.where(id_array==i)[0]/len(id_array)), end = "\r", flush = True)
         except tweepy.TweepError:
             print("Error retrieving username, ignoring user {}...".format(i), end = "\r", flush = True)
             ignored_users += 1   
@@ -76,3 +76,9 @@ def get_unique(df):
 
 get_unique(df)
 translate_id(unique)
+
+df.to_csv("relation_array.csv")
+
+keys = pickle.load(open("keys_id.dat", "rb"))
+keys_df = pd.DataFrame(keys, columns = ["user_id", "screen_name"])
+keys_df.to_csv("keys_id.csv")
