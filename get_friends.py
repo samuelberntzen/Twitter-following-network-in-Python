@@ -25,7 +25,6 @@ api = tweepy.API(auth, wait_on_rate_limit = True, wait_on_rate_limit_notify = Tr
 # Global variables
 start = time.time()
 used_id = []
-follower_threshold = 50
 
 
 # Define function for retrieving friends of a user
