@@ -8,13 +8,13 @@ import numpy as np
 
 # Authentication
 
-key = "BuKfT6TiMeq9wTtHNnn9lV5FD"
+key = "your_key"
 
-key_secret = "Ut5XfMkZ5Z6RdonPsyam2MVtU7pmZST24Llz8YlLsggQB6Ly3z"
+key_secret = "your_key_secret"
 
 
-token = "883325489800196097-D4UIdsCMv9KIPgG6cu6Gs7CjIoBxVfT"
-token_secret = "QNJzZL6rE9PB3VVduZNpDw3342gEdy4AmiKJdQibGv7XU"
+token = "your_token"
+token_secret = "your_token_secret"
 
 
 # Connect to API
