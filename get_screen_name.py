@@ -8,13 +8,10 @@ import numpy as np
 
 # Authentication
 
-key = "your_key"
-
-key_secret = "your_key_secret"
-
-
-token = "your_token"
-token_secret = "your_token_secret"
+key = "XAXSvlfNToU0va4rbVhVxpA3U"
+key_secret = "1N5Tbxahud3XxPWNOGX1EC4FsWM78GkNtrGcCfkdtUo1Xx90VV"
+token = "883325489800196097-Z6XFQkFEit69mPNw9R2T5npMooflwAG"
+token_secret = "ubvk1H3YTSWdCqbW73TQjQECZTMzpnRhZ7bZukBtbEqHE"
 
 
 # Connect to API
@@ -33,7 +30,7 @@ rel_array = pickle.load(open("friends_relation.dat", "rb"))
 df = pd.DataFrame(rel_array, columns = ["from_id", "to_id"])
 
 # Define function for returning screen_name
-def translate_id(id_array):
+def get_screen_names(id_array):
     keys = []
     global ignored_users
     
@@ -47,13 +44,12 @@ def translate_id(id_array):
             keys.append([i, name])
             print("\r Percent completed (updates automatically): {}".format(100*np.where(id_array==i)[0]/len(id_array)), end = "\r", flush = True)
         except tweepy.TweepError:
-            print("Error retrieving username, ignoring user {}...".format(i), end = "\r", flush = True)
+            print("Error retrieving username, ignoring user {}...".format(i), end = "\r")
             ignored_users += 1   
             print("Users ignored: ", ignored_users, end = "\r", flush = True)
     
     pickle.dump(keys, open("keys_id.dat", "wb"))
     return keys
-
 
 
 # Return uniques from "to" and "from"
@@ -73,12 +69,19 @@ def get_unique(df):
     unique = pd.DataFrame(unique)
     unique = unique[0].unique()
 
+def translate_dataframe(df, translation):
+    rename_dict = translation.set_index("user_id").to_dict()["screen_name"]
+    df = df.replace(rename_dict)
+    df.to_csv("df_translated.csv")
+
 
 get_unique(df)
-translate_id(unique)
+get_screen_names(unique)
 
-df.to_csv("relation_array.csv")
+#df.to_csv("relation_array.csv")
 
 keys = pickle.load(open("keys_id.dat", "rb"))
 keys_df = pd.DataFrame(keys, columns = ["user_id", "screen_name"])
 keys_df.to_csv("keys_id.csv")
+
+translate_dataframe(df, keys_df)
