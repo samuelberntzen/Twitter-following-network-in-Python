@@ -8,10 +8,10 @@ import numpy as np
 
 # Authentication
 
-key = "XAXSvlfNToU0va4rbVhVxpA3U"
-key_secret = "1N5Tbxahud3XxPWNOGX1EC4FsWM78GkNtrGcCfkdtUo1Xx90VV"
-token = "883325489800196097-Z6XFQkFEit69mPNw9R2T5npMooflwAG"
-token_secret = "ubvk1H3YTSWdCqbW73TQjQECZTMzpnRhZ7bZukBtbEqHE"
+key = "your_key"
+key_secret = "your_key_secret"
+token = "your_token"
+token_secret = "your_token_secret"
 
 
 # Connect to API
