@@ -11,10 +11,17 @@ import keys
 
 # Authentication
 
+<<<<<<< HEAD
 key = keys.api_key
 key_secret = keys.api_secret
 token = keys.token
 token_secret = keys.token_secret
+=======
+key = "your_key"
+key_secret = "your_key_secret"
+token = "your_token"
+token_secret = "your_token_secret"
+>>>>>>> 81c9b9f525d1ca422c48db415801f804a015f7bf
 
 
 # Connect to API
