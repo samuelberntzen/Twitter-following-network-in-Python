@@ -5,15 +5,15 @@ import json
 import pickle
 import numpy as np
 
+import keys
+
+
 # Authentication
 
-key = "BuKfT6TiMeq9wTtHNnn9lV5FD"
-
-key_secret = "Ut5XfMkZ5Z6RdonPsyam2MVtU7pmZST24Llz8YlLsggQB6Ly3z"
-
-
-token = "883325489800196097-D4UIdsCMv9KIPgG6cu6Gs7CjIoBxVfT"
-token_secret = "QNJzZL6rE9PB3VVduZNpDw3342gEdy4AmiKJdQibGv7XU"
+key = keys.api_key
+key_secret = keys.api_secret
+token = keys.token
+token_secret = keys.token_secret
 
 
 # Connect to API
