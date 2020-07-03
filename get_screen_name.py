@@ -11,17 +11,10 @@ import keys
 
 # Authentication
 
-<<<<<<< HEAD
 key = keys.api_key
 key_secret = keys.api_secret
 token = keys.token
 token_secret = keys.token_secret
-=======
-key = "your_key"
-key_secret = "your_key_secret"
-token = "your_token"
-token_secret = "your_token_secret"
->>>>>>> 81c9b9f525d1ca422c48db415801f804a015f7bf
 
 
 # Connect to API
@@ -36,7 +29,7 @@ api = tweepy.API(auth, wait_on_rate_limit = True, wait_on_rate_limit_notify = Tr
 ignored_users = 0
 
 # Read relation array as dataframe
-rel_array = pickle.load(open("friends_relation.dat", "rb"))
+rel_array = pickle.load(open("data/friends_relation.dat", "rb"))
 df = pd.DataFrame(rel_array, columns = ["from_id", "to_id"])
 
 # Define function for returning screen_name
@@ -58,7 +51,7 @@ def get_screen_names(id_array):
             ignored_users += 1   
             print("Users ignored: ", ignored_users, end = "\r", flush = True)
     
-    pickle.dump(keys, open("keys_id.dat", "wb"))
+    pickle.dump(keys, open("data/keys_id.dat", "wb"))
     return keys
 
 
@@ -82,7 +75,7 @@ def get_unique(df):
 def translate_dataframe(df, translation):
     rename_dict = translation.set_index("user_id").to_dict()["screen_name"]
     df = df.replace(rename_dict)
-    df.to_csv("df_translated.csv")
+    df.to_csv("data/df_translated.csv")
 
 
 get_unique(df)
@@ -90,8 +83,8 @@ get_screen_names(unique)
 
 #df.to_csv("relation_array.csv")
 
-keys = pickle.load(open("keys_id.dat", "rb"))
+keys = pickle.load(open("data/keys_id.dat", "rb"))
 keys_df = pd.DataFrame(keys, columns = ["user_id", "screen_name"])
-keys_df.to_csv("keys_id.csv")
+keys_df.to_csv("data/keys_id.csv")
 
 translate_dataframe(df, keys_df)

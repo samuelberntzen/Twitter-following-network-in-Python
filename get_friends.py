@@ -71,7 +71,7 @@ def get_friends_network(relation_array, user_id, wanted_level):
                 
                 
     # Dump data to file
-    pickle.dump(relation_array, open("friends_relation.dat", "wb"))
+    pickle.dump(relation_array, open("data/friends_relation.dat", "wb"))
     return relation_array
 
 
