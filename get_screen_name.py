@@ -75,7 +75,8 @@ def get_unique(df):
 def translate_dataframe(df, translation):
     rename_dict = translation.set_index("user_id").to_dict()["screen_name"]
     df = df.replace(rename_dict)
-    df.to_csv("data/df_translated.csv")
+
+    df.to_csv("data/df_translated.csv", index = False)
 
 
 get_unique(df)
