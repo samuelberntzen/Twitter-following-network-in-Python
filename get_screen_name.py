@@ -82,8 +82,6 @@ def translate_dataframe(df, translation):
 get_unique(df)
 get_screen_names(unique)
 
-#df.to_csv("relation_array.csv")
-
 keys = pickle.load(open("data/keys_id.dat", "rb"))
 keys_df = pd.DataFrame(keys, columns = ["user_id", "screen_name"])
 keys_df.to_csv("data/keys_id.csv")
